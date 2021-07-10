@@ -3,10 +3,14 @@ package com.example.android.regex.app;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.android.regex.app.databinding.ActivityMainBinding;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding activityMainBinding;
@@ -58,7 +62,25 @@ public class MainActivity extends AppCompatActivity {
             public void onTextChanged(final CharSequence charSequence, final int start, final int before,
                                       final int count) {
                 if (!String.valueOf(activityMainBinding.activityMainOutputField.getText()).isEmpty()) {
+                    final String[] outputWords =
+                            String.valueOf(activityMainBinding.activityMainOutputField.getText()).split(" ");
+                    final String inputRegex = String.valueOf(activityMainBinding.activityMainRegexField.getText());
 
+                    Log.d("regexValid", String.valueOf(Utility.regexIsValid(inputRegex)));
+
+                    if (Utility.regexIsValid(inputRegex)) {
+                        Log.d("outputWords", "starting");
+
+                        final Pattern pattern = Pattern.compile(inputRegex);
+
+                        for (final String word : outputWords) {
+                            final Matcher matcher = pattern.matcher(word);
+
+                            while (matcher.find()) {
+                                Log.d("FOUND!", matcher.group());
+                            }
+                        }
+                    }
                 }
             }
 
