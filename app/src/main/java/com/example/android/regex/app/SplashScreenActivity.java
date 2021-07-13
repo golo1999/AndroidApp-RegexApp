@@ -8,14 +8,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.android.regex.app.databinding.ActivitySplashScreenBinding;
 
 public class SplashScreenActivity extends AppCompatActivity {
+    private static final int SLEEP_DURATION_MILLISECONDS = 1500;
     private ActivitySplashScreenBinding activitySplashScreenBinding;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setActivitySplashScreenBinding();
         setContentView(activitySplashScreenBinding.getRoot());
         initializeSplashScreen();
+    }
+
+    public static int getSleepDurationMilliseconds() {
+        return SLEEP_DURATION_MILLISECONDS;
     }
 
     private void setActivitySplashScreenBinding() {
@@ -23,14 +28,20 @@ public class SplashScreenActivity extends AppCompatActivity {
     }
 
     private void initializeSplashScreen() {
-        new SplashScreenLauncher().start();
+        new SplashScreenLauncher(getSleepDurationMilliseconds()).start();
     }
 
     public class SplashScreenLauncher extends Thread {
+        private final int sleepDuration;
+
+        public SplashScreenLauncher(final int sleepDuration) {
+            this.sleepDuration = sleepDuration;
+        }
+
         @Override
         public void run() {
             try {
-                sleep(1500);
+                sleep(sleepDuration);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } finally {
@@ -39,9 +50,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         }
 
         private void goToMainActivity() {
-            final Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
-
-            startActivity(intent);
+            startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
             finish();
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         }
