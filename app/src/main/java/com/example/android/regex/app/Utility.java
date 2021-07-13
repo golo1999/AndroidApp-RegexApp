@@ -71,4 +71,15 @@ public final class Utility {
         return "<span style ='color: " + context.getColor(R.color.primary_color) + "; background-color: " +
                 context.getColor(R.color.secondary_color) + "'>" + word + "</span>";
     }
+
+    public static void stringBuilderReplaceAll(final StringBuilder builder, final String from,
+                                               final String to) {
+        int index = builder.indexOf(from);
+
+        while (index != -1) {
+            builder.replace(index, index + from.length(), to);
+            index += to.length(); // Move to the end of the replacement
+            index = builder.indexOf(from, index);
+        }
+    }
 }

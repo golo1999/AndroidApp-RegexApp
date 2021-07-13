@@ -55,6 +55,23 @@
             app:layout_constraintTop_toBottomOf="@+id/activity_main_text_field"
             app:layout_constraintWidth_percent=".9" />
 
+        <Button
+            android:id="@+id/activity_main_highlight_button"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:background="@drawable/ic_mint"
+            android:fontFamily="@font/aclonica"
+            android:padding="10sp"
+            android:stateListAnimator="@null"
+            android:text="@string/highlight"
+            android:textColor="@color/primary_color"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_main_regex_field"
+            app:layout_constraintWidth_percent=".9" />
+
         <TextView
             android:id="@+id/activity_main_output_field"
             android:layout_width="0sp"
@@ -65,7 +82,7 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/activity_main_regex_field"
+            app:layout_constraintTop_toBottomOf="@id/activity_main_highlight_button"
             app:layout_constraintWidth_percent=".9" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

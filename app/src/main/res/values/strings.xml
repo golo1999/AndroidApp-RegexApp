@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">RegexApp</string>
+    <string name="error_empty_fields">No field should be empty</string>
+    <string name="error_empty_regex">Regex should not be empty</string>
+    <string name="error_empty_text">Text should not be empty</string>
+    <string name="error_regex_not_valid">Regex is not valid</string>
+    <string name="highlight">Highlight</string>
     <string name="regex">Regex</string>
     <string name="text">Text</string>
 </resources>
