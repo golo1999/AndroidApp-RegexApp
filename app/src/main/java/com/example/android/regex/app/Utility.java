@@ -1,6 +1,7 @@
 package com.example.android.regex.app;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -11,6 +12,10 @@ import java.util.regex.PatternSyntaxException;
 public final class Utility {
     private Utility() {
 
+    }
+
+    public static void showMessage(final Context context, final String message) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 
     public static boolean regexIsValid(String givenRegex) {
@@ -67,19 +72,8 @@ public final class Utility {
         return null;
     }
 
-    public static String getHighlightedWord(final String word, final Context context) {
+    public static String getHighlightedWord(final Context context, final String word) {
         return "<span style ='color: " + context.getColor(R.color.primary_color) + "; background-color: " +
                 context.getColor(R.color.secondary_color) + "'>" + word + "</span>";
-    }
-
-    public static void stringBuilderReplaceAll(final StringBuilder builder, final String from,
-                                               final String to) {
-        int index = builder.indexOf(from);
-
-        while (index != -1) {
-            builder.replace(index, index + from.length(), to);
-            index += to.length(); // Move to the end of the replacement
-            index = builder.indexOf(from, index);
-        }
     }
 }

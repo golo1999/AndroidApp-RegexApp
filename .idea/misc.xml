@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="EntryPointsManager">
+    <pattern value="com.example.android.regex.app.Utility" method="getHighlightedWord" />
+    <pattern value="com.example.android.regex.app.Utility" method="getMatchedSequence" />
+    <pattern value="com.example.android.regex.app.Utility" method="regexIsValid" />
+    <pattern value="com.example.android.regex.app.Utility" method="showMessage" />
+    <pattern value="com.example.android.regex.app.Utility" method="stringBuilderReplaceAll" />
+    <pattern value="com.example.android.regex.app.Utility" />
+    <pattern value="com.example.android.regex.app.Utility" method="wordIsUnique" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
